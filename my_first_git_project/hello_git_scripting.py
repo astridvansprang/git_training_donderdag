@@ -21,7 +21,10 @@ def decrypt_message(shift, message):
     """
     Needs some implementation
     """
-    return message
+    new_word = ""
+    for letter in message:
+        new_word += shift_letter(letter, shift)
+    return new_word
 
 
 if __name__ == "__main__":
@@ -31,13 +34,14 @@ if __name__ == "__main__":
     the 'input' python function makes it possible to interact with the user. Try using it to ask for someone's 
     name. 
     """
-    name="Astrid"
+    name="Ruuud"
     message_1 = f"Git says: hi {name}, can you decrypt my message?"
 
     print(message_1)
     print(git_encrypted_message)
 
     shift = input(f"Please, {name}, give decryption shift key (integer number please): ")
+    shift = int(shift)
     if type(shift) != int:
         raise Exception("input value not supported!")
     decrypted_message = decrypt_message(shift=shift, message=git_encrypted_message)
