@@ -24,32 +24,35 @@ def decrypt_message(shift, message):
     return message
 
 
-if __name__ == "__main__":
-    git_encrypted_message = 'Gpa aopz, npa aoha, qbza npa pa vcly dpao wslhzl!'
-
+def git_asks_for_name():
     """
-    the 'input' python function makes it possible to interact with the user. Try using it to ask for someone's 
-    name. 
+    the 'input' python function makes it possible to interact with the user. Try using it to ask for someone's
+    name.
     """
-    name="Astrid"
-    message_1 = f"Git says: hi {name}, can you decrypt my message?"
+    name = input("give me your name")
+    return name
 
-    print(message_1)
-    print(git_encrypted_message)
 
-    shift = input(f"Please, {name}, give decryption shift key (integer number please): ")
-    if type(shift) != int:
+def git_asks_for_input_value(name):
+    shift_back = input(f"Please, {name}, give decryption shift key (integer number please): ")
+    shift_back = int(shift_back)
+    if type(shift_back) != int:
         raise Exception("input value not supported!")
+    return shift_back
+
+
+def main():
+    git_encrypted_message = 'Gpa aopz, npa aoha, qbza npa pa vcly dpao wslhzl!'
+    name = git_asks_for_name()
+    print(f"plesase {name}, decrypt the following message")
+    print(git_encrypted_message)
+    shift = git_asks_for_input_value(name)
     decrypted_message = decrypt_message(shift=shift, message=git_encrypted_message)
     print(f"Nice try {name}, this is your decrypted message:")
     print(decrypted_message)
 
 
 
-
-
-
-
-
-
+if __name__ == "__main__":
+    main()
 
