@@ -21,7 +21,10 @@ def decrypt_message(shift, message):
     """
     Needs some implementation
     """
-    return message
+    new_word = ""
+    for letter in message:
+        new_word += shift_letter(letter, shift)
+    return new_word
 
 
 def git_asks_for_name():
